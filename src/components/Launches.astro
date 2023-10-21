@@ -1,0 +1,39 @@
+---
+import { type ApiResponse } from "../types/api.ts";
+import CardLaunch from "../components/CardLaunch.astro";
+
+const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    query: {},
+    options: {
+      sort: {
+        date_unix: "asc",
+      },
+      limit: 12,
+    },
+  }),
+});
+
+const { docs: launches } = (await res.json()) as ApiResponse;
+---
+
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-white">
+  {
+    launches.map((launch) => (
+      <CardLaunch
+        id={launch.id}
+        details={launch.details}
+        success={launch.success}
+        flightNumber={launch.flight_number}
+        img={launch.links.patch.small}
+      >
+        <img src={launch.links.patch.small} />
+        <h2>Launch #{launch.id}</h2>
+      </CardLaunch>
+    ))
+  }
+</div>

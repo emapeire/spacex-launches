@@ -1,5 +1,10 @@
-<button class="flex-row justify-center text-white cursor-pointer bg-slate-700 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-[#1da1f2]/50 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2 hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-110 scale-90 gap-x-2 opacity-90 hover:opacity-100">
-  <slot name="before" />
+---
+let { href } = Astro.props;
+---
+
+<a
+  class="inline-flex flex-row justify-center shadow-md border text-white cursor-pointer bg-gray-800 border-gray-700 hover:bg-gray-700 hover:border-gray-500 focus:ring-4 focus:outline-none focus:ring-gray-500 font-medium rounded-lg px-5 py-2.5 text-center items-center dark:focus:ring-gray-500 mr-2 mb-2 hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-105 scale-90 gap-x-2 opacity-90 hover:opacity-100"
+  href={href}
+>
   <slot />
-  <slot name="after" />
-</button>
+</a>
