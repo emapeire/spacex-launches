@@ -4,6 +4,8 @@ import Layout from "../../layouts/Layout.astro";
 // import { getLatestLaunches } from "../../lib/spacex";
 import BackToHome from "../../components/BackToHome.astro";
 
+export const prerender = false;
+
 const { id } = Astro.params;
 
 let launch;
@@ -29,12 +31,12 @@ if (id) {
       <img src={launch?.links?.patch.small} alt={launch?.name} />
     </picture>
     <h2
-      class="flex justify-center items-center text-center my-2 text-3xl font-bold tracking-tight text-white"
+      class="flex justify-center items-center text-center my-2 text-3xl font-bold tracking-tight text-white pointer-events-none"
     >
       Launch #{launch?.flight_number}
     </h2>
     <p
-      class="flex justify-center items-center text-center my-8 px-32 font-light text-gray-400"
+      class="flex justify-center items-center text-center my-8 px-32 font-light text-gray-400 pointer-events-none"
     >
       {launch?.details}
     </p>
