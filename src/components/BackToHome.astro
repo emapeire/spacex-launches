@@ -1,0 +1,27 @@
+---
+import HeaderButton from "./HeaderButton.astro";
+---
+
+<nav
+  class="flex flex-col items-center justify-center w-full text-center sm:flex-row mt-12"
+>
+  <HeaderButton href="/">
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="flex-shrink-0"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M5 12l14 0"></path>
+      <path d="M5 12l6 6"></path>
+      <path d="M5 12l6 -6"></path>
+    </svg>
+    <span class="whitespace-nowrap">Back to Home</span>
+  </HeaderButton>
+</nav>

@@ -1,0 +1,43 @@
+---
+import { getLaunchBy } from "../../lib/spacex";
+import Layout from "../../layouts/Layout.astro";
+// import { getLatestLaunches } from "../../lib/spacex";
+import BackToHome from "../../components/BackToHome.astro";
+
+const { id } = Astro.params;
+
+let launch;
+if (id) {
+  launch = await getLaunchBy({ id });
+}
+
+// if you use client-side data fetching
+// export async function getStaticPaths() {
+//   const launches = await getLatestLaunches();
+
+//   return launches.map((launch) => ({
+//     params: {
+//       id: launch.id,
+//     },
+//   }));
+// }
+---
+
+<Layout title={`Launch #${launch?.flight_number}`}>
+  <article>
+    <picture class="flex justify-center items-center text-center p-4">
+      <img src={launch?.links?.patch.small} alt={launch?.name} />
+    </picture>
+    <h2
+      class="flex justify-center items-center text-center my-2 text-3xl font-bold tracking-tight text-white"
+    >
+      Launch #{launch?.flight_number}
+    </h2>
+    <p
+      class="flex justify-center items-center text-center my-8 px-32 font-light text-gray-400"
+    >
+      {launch?.details}
+    </p>
+  </article>
+  <BackToHome />
+</Layout>

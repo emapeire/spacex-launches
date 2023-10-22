@@ -2,12 +2,19 @@
 import HeaderButton from "../components/HeaderButton.astro";
 ---
 
-<header class="py-8 px-4 mx-auto max-w-3xl sm:py-16 sm:px-6">
-  <div class="mx-auto text-center mb-8 lg:mb-16">
+<header
+  class="flex flex-col justify-center items-center text-center py-8 px-4 mx-auto max-w-3xl sm:py-16 sm:px-6"
+>
+  <div class="mx-auto text-center mb-8 sm:mb-16">
     <h1
-      class="mb-4 text-5xl tracking-tight font-extrabold text-white pointer-events-none"
+      class="mb-4 sm:text-7xl text-4xl tracking-tight font-extrabold text-white pointer-events-none"
     >
-      SpaceX Launches 🚀
+      <spam
+        style="background-image: linear-gradient(to right, #FFDAB9, #FFA07A, #FF7F50, #FF6347, #FF4500); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"
+      >
+        SpaceX Launches
+      </spam>
+       🚀
     </h1>
     <p
       class="text-gray-500 sm:text-lx dark:text-gray-400 font-light pointer-events-none"

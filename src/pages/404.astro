@@ -1,0 +1,14 @@
+---
+import BackToHome from "../components/BackToHome.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 Not Found">
+  <div class="flex flex-col justify-center items-center">
+    <h1 class="text-white font-bold text-xl sm:text-3xl text-center mb-8">
+      Ops! Page not found.
+    </h1>
+    <img src="https://midu.dev/images/this-is-fine-404.gif" />
+  </div>
+  <BackToHome />
+</Layout>
